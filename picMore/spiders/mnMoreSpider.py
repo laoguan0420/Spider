@@ -61,7 +61,6 @@ class MnmorespiderSpider(scrapy.Spider):
             #当结尾不是jpg且连接中不包含http，从http开始截取作为新的页面（非图片）链接
             if operator.eq(href[-3:],"jpg")==False and "http" in href :
                 item['link']=response.xpath('//ul[@id="tiles"]/li[@class="thumbwook"]/a/img/@src').extract()
-                #items.append(item)
                 yield item
             #当结尾是jpg时，href即为所需图片链接
             elif operator.eq(href[-3:],"jpg")==True:
