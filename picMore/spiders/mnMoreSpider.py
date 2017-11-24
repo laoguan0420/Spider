@@ -66,7 +66,6 @@ class MnmorespiderSpider(scrapy.Spider):
             #当结尾是jpg时，href即为所需图片链接
             elif operator.eq(href[-3:],"jpg")==True:
                 item['link']=response.xpath('//ul[@id="tiles"]/li[@class="thumbwook"]/a/@href').extract()
-                #items.append(item)
                 yield item
             #其他情况时，需要拼接链接地址，作为新的页面链接 
             else :
